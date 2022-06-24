@@ -1,0 +1,12 @@
+Flask
+Flask-Login
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-WTF
+wtforms_alchemy
+sqlalchemy-migrate
+SQLAlchemy-Utils
+validators
+Werkzeug
+WTForms
+gunicorn
