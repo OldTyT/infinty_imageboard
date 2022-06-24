@@ -1,0 +1,15 @@
+{
+  "name": "Infinty Imageboard",
+  "description": "Infinty imageboard",
+  "keywords": [
+    "flask",
+    "python"
+  ],
+  "repository": "https://github.com/OldTyT/infinty_imageboard",
+  "scripts": {
+    "postdeploy": "python db_create.py"
+  },
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
