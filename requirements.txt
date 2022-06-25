@@ -11,3 +11,4 @@ Werkzeug
 WTForms
 gunicorn
 psycopg2-binary
+Flask-JSON
