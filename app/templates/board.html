@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<form id="post" class="form" action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="form-item">
+        <span class="Text">Text:</span>
+        <span class="bold" id="text">{{ form.post_txt }}</span>
+    </div>
+    <div class="form-item">
+        {{ form.submit() }}
+    </div>
+</form>
+{% for post in posts %}
+<form class="post" id="{{ post.id }}" novalidate>
+<div class="form-item">
+    <span class="ID">ID:</span>
+    <span class="bold" id="ID">{{ post.id }}</span>
+    <span class="ID">Text:</span>
+    <span class="bold" id="post_txt">{{ post.post_txt }}</span>
+</div>
+</form>
+{% endfor %}
+{% endblock %}
