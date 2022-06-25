@@ -3,7 +3,6 @@ from app.models import *
 from app import app, db
 from app.forms import *
 from flask_json import as_json
-import sqlalchemy
 
 
 @app.route('/api/<method>/<mean>', methods=['GET', 'POST'])
