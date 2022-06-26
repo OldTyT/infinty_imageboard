@@ -13,9 +13,12 @@ class posts_api(Resource):
         data = {}
         posts = reversed(db.session.query(boardfinty).all())
         data.update({"message": 'success'})
-        tmp = {}
+        tmp = []
         for post in posts:
-            tmp.update({post.id: post.post_txt})
+            tmp_dict = {}
+            tmp_dict.update({f"id": post.id})
+            tmp_dict.update({f"text": post.post_txt})
+            tmp.append(tmp_dict)
         data.update({"posts": tmp})
         return data
 
@@ -39,6 +42,11 @@ def index():
         db.session.commit()
         return redirect(url_for('index'))
     return render_template("board.html", posts=posts, form=form)
+
+
+@app.route('/front', methods=['GET', 'POST'])
+def front():
+    return render_template("front.html")
 
 
 if __name__ == "__main__":
