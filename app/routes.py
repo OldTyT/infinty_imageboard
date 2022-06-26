@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, send_from_directory
 from app.models import *
 from app import app, db, api
 from app.forms import *
@@ -23,7 +23,7 @@ class posts_api(Resource):
         return data
 
     def put(self):
-        db_form = boardfinty(post_txt=request.form['post_txt'])
+        db_form = boardfinty(post_txt=request.data.decode("utf-8"))
         db.session.add(db_form)
         db.session.commit()
         return {'message': 'OK'}
@@ -32,21 +32,9 @@ class posts_api(Resource):
 api.add_resource(posts_api, f'/api/{api_v}/get/posts')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    form = add_post()
-    posts = reversed(db.session.query(boardfinty).all())
-    if form.validate_on_submit():
-        db_form = boardfinty(post_txt=form.post_txt.data)
-        db.session.add(db_form)
-        db.session.commit()
-        return redirect(url_for('index'))
-    return render_template("board.html", posts=posts, form=form)
-
-
-@app.route('/front', methods=['GET', 'POST'])
-def front():
-    return render_template("front.html")
+    return send_from_directory('templates/', 'front.html')
 
 
 if __name__ == "__main__":

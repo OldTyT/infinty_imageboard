@@ -8,58 +8,13 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-
-    <script>
-        var requestURL = 'https://boardfinty.herokuapp.com/api/v1/get/posts';
-        var request = new XMLHttpRequest();
-        request.open('GET', requestURL);
-        request.responseType = 'json';
-        request.send();
-        request.onload = function() {
-          var data = request.response;
-          data_func(data);
-        }
-        function data_func(jsonObj) {
-          var myH1 = document.createElement('h1');
-          myH1.textContent = jsonObj['posts'];
-          var posts_str = jsonObj['posts'];
-          var div = document.querySelector('div');
-          console.log(posts_str[1]);
-          console.log(posts_str);
-          for (var i = 1; i < posts_str.length; i++) {
-            var myList = document.createElement('form');
-            var listID = document.createElement('a');
-            var listText = document.createElement('span');
-            listID.classList.add('bold');
-            listID.href = '#' + posts_str[i]['id'];
-            listText.classList.add('bold');
-            listID.setAttribute('id', posts_str[i]['id']);
-            listID.textContent = posts_str[i]['id'];
-            listText.textContent = posts_str[i]['text'];
-            myList.appendChild(listID);
-            myList.appendChild(listText);
-            div.appendChild(myList);
-            console.log(listID);
-          }
-        }
-    </script>
-    <script>
-
-$(function(){
-    $('a[href*=#]').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-        && location.hostname == this.hostname) {
-            var $target = $(this.hash);
-            $target = $target.length && $target || $('[id=' + this.hash.slice(1) +']');
-            if ($target.length) {
-                var targetOffset = $target.offset().top;
-                $('html,body').animate({scrollTop: targetOffset}, 1500);//скорость прокрутки
-                return false;
-            }
-        }
-    });
-});
-</script>
+<script src="../static/add_post.js"></script>
 <div>
+    <input id="post_txt" name="post_txt" required="" type="text" value="" placeholder="Input Text">
+    <button class="add_button" onclick="submit()">SEND</button>
+</div>
+    <script src="../static/render.js"></script>
+    <script src="../static/move_comment.js"></script>
+<div display:="" flex="" justify-content:="" space-between="">
 </div>
 </body>
