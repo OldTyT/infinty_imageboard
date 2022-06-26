@@ -13,13 +13,7 @@ class posts_api(Resource):
         data = {}
         posts = reversed(db.session.query(boardfinty).all())
         for post in posts:
-            tmp = []
-            tmp.append(post.id)
-            tmp.append(post.post_txt)
-            if not ('posts' in data.keys()):
-                data.update({'posts': [tmp]})
-            else:
-                data["posts"].append(tmp)
+            data.update({post.id: post.post_txt})
         return data
 
     def put(self):
