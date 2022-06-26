@@ -12,8 +12,11 @@ class posts_api(Resource):
     def get(self):
         data = {}
         posts = reversed(db.session.query(boardfinty).all())
+        data.update({"message": 'success'})
+        tmp = {}
         for post in posts:
-            data.update({post.id: post.post_txt})
+            tmp.update({post.id: post.post_txt})
+        data.update({"posts": tmp})
         return data
 
     def put(self):
