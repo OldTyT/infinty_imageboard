@@ -10,7 +10,7 @@
 <body>
 
     <script>
-        var requestURL = 'http://127.0.0.1:5000/api/v1/get/posts';
+        var requestURL = 'https://boardfinty.herokuapp.com/api/v1/get/posts';
         var request = new XMLHttpRequest();
         request.open('GET', requestURL);
         request.responseType = 'json';
@@ -42,10 +42,6 @@
             console.log(listID);
           }
         }
-    </script>
-    <script>
-        fetch('http://127.0.0.1:5000/api/v1/get/posts')
-        .then(response => response.json())
     </script>
     <script>
 
