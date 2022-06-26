@@ -17,7 +17,7 @@ class posts_api(Resource):
             tmp.append(post.id)
             tmp.append(post.post_txt)
             if not ('posts' in data.keys()):
-                data.update({'posts': tmp})
+                data.update({'posts': [tmp]})
             else:
                 data["posts"].append(tmp)
         return data
