@@ -12,3 +12,4 @@ WTForms
 gunicorn
 psycopg2-binary
 Flask-JSON
+flask_restful
