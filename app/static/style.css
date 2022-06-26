@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: black;
+}
+
+body {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: 28px;
+    color: #f2f2f2;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.form:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f2f2f2;
+    opacity: .2;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-item__label {
+    margin-right: 25px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.download {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    background-color: transparent;
+    /*font-weight: bold;*/
+    padding: 5px;
+    border: 3px solid rgba(242, 242, 242, .7);
+}
+
+.download:hover {
+    border: 3px solid rgba(242, 242, 242, 1);
+    color: #ffffff;
+    /*background-color: rgba(242, 242, 242, 0.5);*/
+}
+#sphere-wrap {
+    width: 100%;
+    height: 100vh;
+}
+#sphere {
+    z-index: -2;
+}
+
+.label_reg{
+    color: #000000;
+}
+
+.submit {
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .5);
+    font-weight: bold;
+    color: #f2f2f2;
+    padding: 5px;
+    border: 2px solid rgba(0, 0, 0, .5);
+}
+
+.submit:hover {
+    border: 2px solid #5c5c5c;
+}

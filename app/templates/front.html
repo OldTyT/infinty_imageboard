@@ -2,9 +2,12 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <div class="mypanel"></div>
 
     <script>
         var requestURL = 'http://127.0.0.1:5000/api/v1/get/posts';
@@ -20,26 +23,47 @@
           var myH1 = document.createElement('h1');
           myH1.textContent = jsonObj['posts'];
           var posts_str = jsonObj['posts'];
-          var section = document.querySelector('section');
-          var myArticle = document.createElement('article');
-          var myList = document.createElement('ul');
+          var div = document.querySelector('div');
           console.log(posts_str[1]);
           console.log(posts_str);
           for (var i = 1; i < posts_str.length; i++) {
-            console.log(i);
-            var listItem = document.createElement('li');
-            listItem.textContent = jsonObj['posts'];
-            myList.appendChild(listItem);
-            console.log(listItem);
+            var myList = document.createElement('form');
+            var listID = document.createElement('a');
+            var listText = document.createElement('span');
+            listID.classList.add('bold');
+            listID.href = '#' + posts_str[i]['id'];
+            listText.classList.add('bold');
+            listID.setAttribute('id', posts_str[i]['id']);
+            listID.textContent = posts_str[i]['id'];
+            listText.textContent = posts_str[i]['text'];
+            myList.appendChild(listID);
+            myList.appendChild(listText);
+            div.appendChild(myList);
+            console.log(listID);
           }
-          myArticle.appendChild(myList);
-          section.appendChild(myArticle);
         }
     </script>
     <script>
         fetch('http://127.0.0.1:5000/api/v1/get/posts')
         .then(response => response.json())
     </script>
-<section>
-</section>
+    <script>
+
+$(function(){
+    $('a[href*=#]').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+        && location.hostname == this.hostname) {
+            var $target = $(this.hash);
+            $target = $target.length && $target || $('[id=' + this.hash.slice(1) +']');
+            if ($target.length) {
+                var targetOffset = $target.offset().top;
+                $('html,body').animate({scrollTop: targetOffset}, 1500);//скорость прокрутки
+                return false;
+            }
+        }
+    });
+});
+</script>
+<div>
+</div>
 </body>
