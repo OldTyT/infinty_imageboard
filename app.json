@@ -9,6 +9,14 @@
   "scripts": {
     "postdeploy": "python db_create.py"
   },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "heroku-community/nginx"
+    }
+  ],
   "addons": [
     "heroku-postgresql"
   ]

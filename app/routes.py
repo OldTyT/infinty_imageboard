@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, send_from_directory
 from app.models import *
 from app import app, db, api
 from app.forms import *
@@ -12,7 +12,10 @@ class posts_api(Resource):
     def get(self):
         data = {}
         posts = reversed(db.session.query(boardfinty).all())
+        data.update({"message": 'success'})
+        tmp = []
         for post in posts:
+<<<<<<< HEAD
             tmp = []
             tmp.append(post.id)
             tmp.append(post.post_txt)
@@ -20,10 +23,17 @@ class posts_api(Resource):
                 data.update({'posts': [tmp]})
             else:
                 data["posts"].append(tmp)
+=======
+            tmp_dict = {}
+            tmp_dict.update({f"id": post.id})
+            tmp_dict.update({f"text": post.post_txt})
+            tmp.append(tmp_dict)
+        data.update({"posts": tmp})
+>>>>>>> heroku
         return data
 
     def put(self):
-        db_form = boardfinty(post_txt=request.form['post_txt'])
+        db_form = boardfinty(post_txt=request.data.decode("utf-8"))
         db.session.add(db_form)
         db.session.commit()
         return {'message': 'OK'}
@@ -32,16 +42,9 @@ class posts_api(Resource):
 api.add_resource(posts_api, f'/api/{api_v}/get/posts')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    form = add_post()
-    posts = reversed(db.session.query(boardfinty).all())
-    if form.validate_on_submit():
-        db_form = boardfinty(post_txt=form.post_txt.data)
-        db.session.add(db_form)
-        db.session.commit()
-        return redirect(url_for('index'))
-    return render_template("board.html", posts=posts, form=form)
+    return send_from_directory('templates/', 'front.html')
 
 
 if __name__ == "__main__":

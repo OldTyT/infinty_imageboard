@@ -10,4 +10,4 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 from app import routes, models
 migrate = Migrate(app, db)
-#app.run(host="127.0.0.1", port="5000", debug=True)
+# app.run(host="127.0.0.1", port="5000", debug=True)
