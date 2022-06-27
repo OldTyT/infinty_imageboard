@@ -8,7 +8,7 @@ function submit() {
 
     xhr.onreadystatechange = function () {
        if (xhr.readyState === 4) {
-          var Myelement = document.querySelector('input[name="post_txt"]');
+          var Myelement = document.querySelector('textarea[name="post_txt"]');
           Myelement.value = "";
           console.log(xhr.status);
           console.log(xhr.responseText);

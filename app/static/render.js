@@ -24,7 +24,6 @@ var requestURL = '/api/v1/get/posts';
             text.classList.add('title');
             myList.classList.add('form');
             ID.href = '#' + posts_str[i]['id'];
-            text.classList.add('bold');
             ID.setAttribute('id', posts_str[i]['id']);
             ID.textContent = '#' + posts_str[i]['id'];
             id_placehoard.textContent = 'ID - '
