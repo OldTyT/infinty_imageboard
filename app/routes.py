@@ -29,7 +29,7 @@ class posts_api(Resource):
         return {'message': 'OK'}
 
 
-api.add_resource(posts_api, f'/api/{api_v}/get/posts')
+api.add_resource(posts_api, f'/{api_v}/get/posts')
 
 
 @app.route('/')
