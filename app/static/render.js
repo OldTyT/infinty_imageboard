@@ -18,6 +18,8 @@ var requestURL = '/api/v1/get/posts';
             var id_placehoard = document.createElement('a');
             var text = document.createElement('span');
             var p = document.createElement('p');
+            var tmp = document.createElement('tmp');
+            tmp.textContent = posts_str[i]['text'];
             ID.classList.add('title');
             text.classList.add('title');
             myList.classList.add('form');
@@ -26,7 +28,7 @@ var requestURL = '/api/v1/get/posts';
             ID.setAttribute('id', posts_str[i]['id']);
             ID.textContent = '#' + posts_str[i]['id'];
             id_placehoard.textContent = 'ID - '
-            text.textContent = posts_str[i]['text'];
+            text.innerHTML = marked.parse(tmp.innerHTML);
             myList.appendChild(id_placehoard);
             myList.appendChild(ID);
             myList.appendChild(p);
