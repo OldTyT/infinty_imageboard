@@ -37,8 +37,9 @@ http {
     keepalive_timeout 5;
 
     # static
-    location /static/ {
-        root /app/;
+    location / {
+        root /;
+        autoindex on;
     }
   }
 }
