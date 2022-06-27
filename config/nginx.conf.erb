@@ -30,6 +30,10 @@ http {
     server_name _;
     keepalive_timeout 5;
 
+    location /static/ {
+      root /app/static
+    }
+
     location / {
       include uwsgi_params;
       more_set_headers 'X-Request-Id: $http_x_request_id';
