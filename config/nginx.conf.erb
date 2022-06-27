@@ -33,7 +33,7 @@ http {
 
   server {
     listen <%= ENV["PORT"] %>;
-    server_name boardfinty.herokuapp.com;
+    server_name boardfinty.herokuapp.com default_server;
     keepalive_timeout 5;
 
     location / {
