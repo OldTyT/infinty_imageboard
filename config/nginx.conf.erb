@@ -20,7 +20,9 @@ http {
 
   include mime.types;
   default_type application/octet-stream;
-  # sendfile on;
+  sendfile on;
+  client_max_body_size 20M;
+  keepalive_timeout  0;
 
   # Must read the body in 5 seconds.
   # client_body_timeout 5;
