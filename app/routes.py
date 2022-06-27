@@ -37,5 +37,10 @@ def index():
     return send_from_directory('templates/', 'front.html')
 
 
+def when_ready(server):
+    open('/tmp/app-initialized', 'w').close()
+
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    bind = 'unix:///tmp/nginx.socket'
+    app.run()

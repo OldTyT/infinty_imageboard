@@ -14,9 +14,6 @@
       "url": "heroku/python"
     },
     {
-      "url": "heroku-community/static"
-    },
-    {
       "url": "heroku-community/nginx"
     }
   ],
