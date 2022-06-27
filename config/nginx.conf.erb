@@ -47,13 +47,8 @@ http {
       proxy_pass http://app_server;
     }
     # static
-    location ~* \.(jpg|jpeg|png|gif|ico|svg|otf)$ {
-        root /app/;
-        expires 30d;
-    }
-    location ~* \.(css|js)$ {
-        root /app/;
-        expires 7d;
+    location /static/ {
+        alias /app/static/;
     }
   }
 }
