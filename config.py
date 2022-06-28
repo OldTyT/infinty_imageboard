@@ -13,4 +13,4 @@ class Config(object):
 #                              'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JSON_ADD_STATUS = False
-    STATIC_FOLDER = '/app/static'
+    #STATIC_FOLDER = '/app/static'
