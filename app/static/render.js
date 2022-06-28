@@ -36,7 +36,6 @@ function data_func(jsonObj) {
         let now = new Date(ts * 1000);
         time.textContent = [now.getHours(), now.getMinutes()].map(d => d < 10 ? '0'+d : d).join(':');
         date.textContent = [now.getFullYear(), (1 + now.getMonth()), now.getDate()].map(d => d < 10 ? '0'+d : d).join('/');
-        console.log(date.textContent)
         myList.appendChild(id_placehoard);
         myList.appendChild(ID);
         myList.appendChild(p);
