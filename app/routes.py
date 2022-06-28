@@ -33,5 +33,6 @@ class posts_api(Resource):
 
 api.add_resource(posts_api, f'/api/{api_v}/get/posts')
 
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
