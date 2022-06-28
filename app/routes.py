@@ -34,7 +34,7 @@ api.add_resource(posts_api, f'/{api_v}/get/posts')
 
 @app.route('/')
 def index():
-    return send_from_directory('templates/', 'front.html')
+    return send_from_directory('templates/', 'index.html')
 
 
 if __name__ == "__main__":
