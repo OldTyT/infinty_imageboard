@@ -49,7 +49,9 @@ http {
       proxy_redirect off;
       proxy_pass http://app_server;
     }
-
+    location / {
+        root /app/app/web_pages/;
+    }
 
   }
 }
