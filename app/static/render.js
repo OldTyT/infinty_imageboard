@@ -18,11 +18,9 @@ function data_func(jsonObj) {
         var id_placehoard = document.createElement('a');
         var text = document.createElement('span');
         var p = document.createElement('p');
-        var time = document.createElement('p');
-        var date = document.createElement('p');
+        var datetime = document.createElement('p');
         var tmp = document.createElement('tmp');
-        time.classList.add('time');
-        date.classList.add('date');
+        datetime.classList.add('datetime');
         tmp.textContent = posts_str[i]['text'];
         ID.classList.add('title');
         text.classList.add('title');
@@ -32,15 +30,13 @@ function data_func(jsonObj) {
         ID.textContent = '#' + posts_str[i]['id'];
         id_placehoard.textContent = 'ID - '
         text.innerHTML = marked.parse(tmp.innerHTML);
+        text.style.textAlign = "center";
         let ts = posts_str[i]['unixtime'];
         let now = new Date(ts * 1000);
-        time.textContent = [now.getHours(), now.getMinutes()].map(d => d < 10 ? '0'+d : d).join(':');
-        date.textContent = [now.getFullYear(), (1 + now.getMonth()), now.getDate()].map(d => d < 10 ? '0'+d : d).join('/');
+        datetime.textContent = [now.getFullYear(), (1 + now.getMonth()), now.getDate()].map(d => d < 10 ? '0'+d : d).join('/') + " " + [now.getHours(), now.getMinutes()].map(d => d < 10 ? '0'+d : d).join(':');
         myList.appendChild(id_placehoard);
         myList.appendChild(ID);
-        myList.appendChild(p);
-        myList.appendChild(date);
-        myList.appendChild(time);
+        myList.appendChild(datetime);
         myList.appendChild(p);
         myList.appendChild(text);
         div.appendChild(myList);
