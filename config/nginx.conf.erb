@@ -49,8 +49,8 @@ http {
       proxy_redirect off;
       proxy_pass http://app_server;
     }
-    location / {
-        root /app/app/web_files/;
+    location /web_files/ {
+        root /app/app/;
     }
     location ~ /*\.(.*) {
         root /app/app/web_pages/;
