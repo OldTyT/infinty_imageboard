@@ -50,8 +50,11 @@ http {
       proxy_pass http://app_server;
     }
     location / {
-        root /app/app/web_pages/;
+        root /app/app/web_files/;
     }
-
+    location @htmlext {
+        root /app/app/web_pages/;
+        rewrite ^(.*)$ $1.html last;
+    }
   }
 }
