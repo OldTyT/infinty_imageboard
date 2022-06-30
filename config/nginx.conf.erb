@@ -35,7 +35,6 @@ http {
     listen <%= ENV["PORT"] %>;
     server_name _;
     keepalive_timeout 5;
-    index index.html;
 
     # static
     location /static/ {
@@ -51,14 +50,10 @@ http {
       proxy_pass http://app_server;
     }
     location / {
-        try_files $uri $uri/ @htmlext;
+        root /app/app/web_files/;
     }
-    location ~ \.html$ {
-        try_files $uri =404;
-    }
-    location @htmlext {
+    location ~ /*\.(.*) {
         root /app/app/web_pages/;
-        rewrite ^(.*)$ $1.html last;
     }
   }
 }
