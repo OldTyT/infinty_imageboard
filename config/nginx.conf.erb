@@ -52,8 +52,8 @@ http {
     location /robots.txt {
         alias /app/app/web_files/robots.txt;
     }
-    location /files {
-        root /app/app/web_files/;
+    location /web_files {
+        root /app/app/;
     }
     location / {
         index index;
