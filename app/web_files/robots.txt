@@ -1,10 +1,4 @@
 User-agent: *
-Disallow: /static/Pro1data
+Allow: /
 
-User-agent: Yandex
-Disallow: /static/Pro1data
-
-User-agent: Googlebot
-Disallow: /static/Pro1data
-
-Sitemap: https://androom.herokuapp.com/sitemap.xml
+Sitemap: https://boardfinty.herokuapp.com/sitemap.xml
