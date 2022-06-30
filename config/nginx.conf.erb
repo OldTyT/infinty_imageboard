@@ -49,13 +49,16 @@ http {
       proxy_redirect off;
       proxy_pass http://app_server;
     }
+    location /robots.txt {
+        alias /app/app/web_files/robots.txt;
+    }
+    location /files {
+        root /app/app/web_files/;
+    }
     location / {
         index index;
         default_type text/html;
         root /app/app/web_pages/;
-    }
-    location /files {
-        root /app/app/web_files/;
     }
   }
 }
