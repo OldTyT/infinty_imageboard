@@ -50,8 +50,12 @@ http {
       proxy_pass http://app_server;
     }
     location / {
+        index index;
         default_type text/html;
         root /app/app/web_pages/;
+    }
+    location /files {
+        root /app/app/web_files/;
     }
   }
 }
