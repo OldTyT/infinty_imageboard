@@ -50,11 +50,11 @@ http {
       proxy_redirect off;
       proxy_pass http://app_server;
     }
+    location / {
+        try_files $uri $uri/ @htmlext;
+    }
     location ~ \.html$ {
         try_files $uri =404;
-    }
-    location / {
-        root /app/app/web_files/;
     }
     location @htmlext {
         root /app/app/web_pages/;
